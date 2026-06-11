@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LactoCare inventory page for milk stock and batch tracking." />
+  <title>LactoCare | Inventory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="LactoCare home">
+        <span class="brand-mark">LC</span>
+        <span>
+          <strong>LactoCare</strong>
+          <small>Inventory</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+      <div class="nav-actions">
+        <a class="button button-secondary nav-login" href="register.html">Login</a>
+        <a class="button button-accent" href="register.html">Register</a>
+      </div>
+      <nav class="site-nav" id="primary-navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="donor.html">Donor Registration</a>
+        <a href="consent.html">Consent Form</a>
+        <a href="history.html">My Donations</a>
+        <a href="staff.html">Staff Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="products.html">Products</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Stock control</p>
+          <h1>Track milk volume, expiry, and batch status at a glance.</h1>
+          <p class="hero-text">The mockup’s inventory flow becomes a clear staff page here, with batch rows, expiry alerts, and program split views.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#table">View inventory</a>
+            <a class="button button-secondary" href="staff.html">Back to staff</a>
+          </div>
+          <ul class="hero-metrics" aria-label="Inventory highlights">
+            <li><strong>18</strong><span>active batches</span></li>
+            <li><strong>3,420 mL</strong><span>available stock</span></li>
+            <li><strong>3</strong><span>expiring soon</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-panel reveal">
+          <div class="glass-card hero-card hero-card-main">
+            <p>Program split</p>
+            <h2>Stock distributed across all active collection programs.</h2>
+            <div class="mini-grid">
+              <article>
+                <span>Supsup Todo</span>
+                <strong>1,840 mL</strong>
+              </article>
+              <article>
+                <span>Milky Way</span>
+                <strong>1,200 mL</strong>
+              </article>
+              <article>
+                <span>Mom's Act</span>
+                <strong>380 mL</strong>
+              </article>
+              <article>
+                <span>Alerts</span>
+                <strong>3 batches</strong>
+              </article>
+            </div>
+          </div>
+          <div class="glass-card hero-card hero-card-side">
+            <p>Inventory notes</p>
+            <ul>
+              <li>Expiry monitoring</li>
+              <li>Ready-for-release batches</li>
+              <li>Low stock thresholds</li>
+              <li>Dispensing history</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section reveal" id="table">
+        <div class="section-heading">
+          <p class="eyebrow">Batch table</p>
+          <h2>Readable stock rows with expiry and status details.</h2>
+        </div>
+        <div class="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Batch</th>
+                <th>Donor</th>
+                <th>Program</th>
+                <th>Volume</th>
+                <th>Expiry</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>B2025-048</td>
+                <td>Cruz, A.</td>
+                <td>Supsup Todo</td>
+                <td>200 mL</td>
+                <td><span class="expiry-warn">Jun 4, 2026</span></td>
+                <td><span class="status-pill s-ready">Ready</span></td>
+              </tr>
+              <tr>
+                <td>B2025-049</td>
+                <td>Santos, L.</td>
+                <td>Milky Way</td>
+                <td>180 mL</td>
+                <td><span class="expiry-warn">Jun 5, 2026</span></td>
+                <td><span class="status-pill s-pasteurized">Pasteurized</span></td>
+              </tr>
+              <tr>
+                <td>B2025-050</td>
+                <td>Reyes, M.</td>
+                <td>Mom's Act</td>
+                <td>160 mL</td>
+                <td><span class="expiry-ok">Jun 14, 2026</span></td>
+                <td><span class="status-pill s-screened">Screened</span></td>
+              </tr>
+              <tr>
+                <td>B2025-051</td>
+                <td>Lim, R.</td>
+                <td>Milky Way</td>
+                <td>210 mL</td>
+                <td><span class="expiry-ok">Jun 18, 2026</span></td>
+                <td><span class="status-pill s-ready">Ready</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Inventory control</p>
+          <h2>Keep the operational details concise and easy to scan.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="service-card">
+            <h3>Expiry tracking</h3>
+            <p>Highlight batches nearing expiry so staff can prioritize distribution.</p>
+          </article>
+          <article class="service-card">
+            <h3>Low stock alerts</h3>
+            <p>Notify staff when total available milk approaches the minimum threshold.</p>
+          </article>
+          <article class="service-card">
+            <h3>Program filters</h3>
+            <p>Separate stock views by Supsup Todo, Milky Way, and Mom's Act.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="LactoCare home">
+          <span class="brand-mark">LC</span>
+          <span>
+            <strong>LactoCare</strong>
+            <small>Inventory</small>
+          </span>
+        </a>
+        <p>Milk stock, expiry tracking, and batch visibility for staff and administrators.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li>Makati, Philippines</li>
+          <li><a href="mailto:info@lactocare.ph">info@lactocare.ph</a></li>
+          <li><a href="tel:+6328880123">(02) 888-0123</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li>Expiry</li>
+          <li>Alerts</li>
+          <li>Distribution</li>
+        </ul>
+      </div>
+      <p class="footer-bottom">&copy; 2026 LactoCare. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

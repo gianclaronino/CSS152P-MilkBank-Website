@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LactoCare staff dashboard for screening, donor activity, milk requests, and inventory oversight." />
+  <title>LactoCare | Staff Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="LactoCare home">
+        <span class="brand-mark">LC</span>
+        <span>
+          <strong>LactoCare</strong>
+          <small>Staff Dashboard</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+      <div class="nav-actions">
+        <a class="button button-secondary nav-login" href="register.html">Login</a>
+        <a class="button button-accent" href="register.html">Register</a>
+      </div>
+      <nav class="site-nav" id="primary-navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="donor.html">Donor Registration</a>
+        <a href="consent.html">Consent Form</a>
+        <a href="history.html">My Donations</a>
+        <a href="staff.html">Staff Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="products.html">Products</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="dashboard-shell reveal" id="dashboard">
+        <aside class="dashboard-sidebar" aria-label="Dashboard navigation">
+          <div class="sidebar-group">
+            <p class="sidebar-label">Overview</p>
+            <nav class="sidebar-nav">
+              <a class="is-active" href="#dashboard">Dashboard</a>
+              <a href="#donors">Donors</a>
+              <a href="#schedules">Schedules</a>
+            </nav>
+          </div>
+
+          <div class="sidebar-group">
+            <p class="sidebar-label">Operations</p>
+            <nav class="sidebar-nav">
+              <a href="#screening">Screening</a>
+              <a href="#inventory">Inventory</a>
+              <a href="#dispensing">Dispensing</a>
+            </nav>
+          </div>
+
+          <div class="sidebar-group">
+            <p class="sidebar-label">Admin</p>
+            <nav class="sidebar-nav">
+              <a href="#reports">Reports</a>
+              <a href="#settings">Settings</a>
+            </nav>
+          </div>
+        </aside>
+
+        <section class="dashboard-main">
+          <div class="dashboard-top">
+            <div>
+              <p class="eyebrow">Overview</p>
+              <h1>Good morning, <span class="orange-highlight">Nurse Reyes</span></h1>
+            </div>
+            <div class="dashboard-actions">
+              <span class="dashboard-mini-pill" aria-hidden="true"></span>
+              <a class="button button-accent" href="#screening">+ Log Collection</a>
+            </div>
+          </div>
+
+          <div class="dashboard-banner">3 batches nearing expiry in the next 72 hours. Check inventory.</div>
+
+          <div class="dashboard-stats">
+            <article class="metric-card">
+              <span>Active donors</span>
+              <strong>42</strong>
+              <p>+3 this week</p>
+            </article>
+            <article class="metric-card">
+              <span>Pending screening</span>
+              <strong>7</strong>
+              <p>Batches awaiting results</p>
+            </article>
+            <article class="metric-card">
+              <span>Inventory (mL)</span>
+              <strong>3,420</strong>
+              <p>Across 18 batches</p>
+            </article>
+            <article class="metric-card">
+              <span>Milk requests</span>
+              <strong>5</strong>
+              <p>2 urgent pending</p>
+            </article>
+          </div>
+
+          <div class="dashboard-grid-two">
+            <article class="dashboard-card" id="donors">
+              <div class="dashboard-card-head">
+                <h2>Recent batches</h2>
+                <a class="button button-secondary" href="inventory.html">View all</a>
+              </div>
+              <div class="batch-list">
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">B2025-051</div>
+                    <div class="batch-name">Reyes, M.</div>
+                  </div>
+                  <div class="batch-volume">240 mL</div>
+                  <span class="status-pill is-collected">Collected</span>
+                </div>
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">B2025-050</div>
+                    <div class="batch-name">Cruz, A.</div>
+                  </div>
+                  <div class="batch-volume">200 mL</div>
+                  <span class="status-pill is-screened">Screened</span>
+                </div>
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">B2025-049</div>
+                    <div class="batch-name">Santos, L.</div>
+                  </div>
+                  <div class="batch-volume">180 mL</div>
+                  <span class="status-pill is-pasteurized">Pasteurized</span>
+                </div>
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">B2025-048</div>
+                    <div class="batch-name">Dela Cruz, B.</div>
+                  </div>
+                  <div class="batch-volume">230 mL</div>
+                  <span class="status-pill is-ready">Ready</span>
+                </div>
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">B2025-047</div>
+                    <div class="batch-name">Santos, M.</div>
+                  </div>
+                  <div class="batch-volume">230 mL</div>
+                  <span class="status-pill is-ready">Ready</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="dashboard-card" id="schedules">
+              <div class="dashboard-card-head">
+                <h2>Milk requests</h2>
+                <a class="button button-secondary" href="#inventory">Manage</a>
+              </div>
+              <div class="request-list">
+                <div class="request-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Baby Rodriguez</div>
+                    <div class="request-hospital">Philippine General Hospital</div>
+                  </div>
+                  <div class="batch-volume">150 mL</div>
+                  <span class="status-pill is-urgent">Urgent</span>
+                </div>
+                <div class="request-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Baby Lim</div>
+                    <div class="request-hospital">Ospital ng Makati</div>
+                  </div>
+                  <div class="batch-volume">100 mL</div>
+                  <span class="status-pill is-urgent">Urgent</span>
+                </div>
+                <div class="request-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Baby Fernandez</div>
+                    <div class="request-hospital">Fabella Hospital</div>
+                  </div>
+                  <div class="batch-volume">200 mL</div>
+                  <span class="status-pill is-normal">Normal</span>
+                </div>
+                <div class="request-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Baby Mendoza</div>
+                    <div class="request-hospital">Ospital ng Makati</div>
+                  </div>
+                  <div class="batch-volume">120 mL</div>
+                  <span class="status-pill is-normal">Normal</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <article class="dashboard-card inventory-panel" id="inventory">
+            <div class="dashboard-card-head">
+              <h2>Inventory by program</h2>
+              <a class="button button-secondary" href="inventory.html">Open inventory</a>
+            </div>
+            <div class="program-row" data-program-volume="1840">
+              <div class="batch-id">Supsup Todo</div>
+              <div class="program-track"><div class="program-fill orange" aria-hidden="true"></div></div>
+              <div class="program-value">1,840 mL</div>
+            </div>
+            <div class="program-row" data-program-volume="1200">
+              <div class="batch-id">Milky Way</div>
+              <div class="program-track"><div class="program-fill teal" aria-hidden="true"></div></div>
+              <div class="program-value">1,200 mL</div>
+            </div>
+            <div class="program-row" data-program-volume="380">
+              <div class="batch-id">Mom's Act</div>
+              <div class="program-track"><div class="program-fill gold" aria-hidden="true"></div></div>
+              <div class="program-value">380 mL</div>
+            </div>
+          </article>
+
+          <div class="dashboard-grid-two">
+            <article class="dashboard-card" id="screening">
+              <div class="dashboard-card-head">
+                <h2>Screening queue</h2>
+                <span class="status-pill is-screened">3 awaiting review</span>
+              </div>
+              <div class="batch-list">
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Batch B2025-052</div>
+                    <div class="batch-name">Microbiological test scheduled</div>
+                  </div>
+                  <span class="status-pill is-screened">Pending</span>
+                </div>
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Batch B2025-053</div>
+                    <div class="batch-name">Pasteurization check in progress</div>
+                  </div>
+                  <span class="status-pill is-pasteurized">Checking</span>
+                </div>
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Batch B2025-054</div>
+                    <div class="batch-name">Release documentation ready</div>
+                  </div>
+                  <span class="status-pill is-ready">Ready</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="dashboard-card" id="dispensing">
+              <div class="dashboard-card-head">
+                <h2>Dispensing status</h2>
+                <span class="status-pill is-ready">2 scheduled today</span>
+              </div>
+              <div class="batch-list">
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Route 01</div>
+                    <div class="batch-name">Bangkal Health Center</div>
+                  </div>
+                  <span class="status-pill is-collected">On route</span>
+                </div>
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Route 02</div>
+                    <div class="batch-name">PGH Manila</div>
+                  </div>
+                  <span class="status-pill is-normal">Queued</span>
+                </div>
+                <div class="batch-row">
+                  <div class="batch-meta">
+                    <div class="batch-id">Route 03</div>
+                    <div class="batch-name">Fabella Hospital</div>
+                  </div>
+                  <span class="status-pill is-normal">Queued</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="dashboard-grid-two">
+            <article class="dashboard-card" id="reports">
+              <div class="dashboard-card-head">
+                <h2>Reports</h2>
+                <a class="button button-secondary" href="#dashboard">Review</a>
+              </div>
+              <div class="feature-list">
+                <article>
+                  <h3>Daily log</h3>
+                  <p>5 new batches logged, 2 requests escalated, and 1 route completed.</p>
+                </article>
+                <article>
+                  <h3>Weekly summary</h3>
+                  <p>Inventory stayed above threshold with 18 active batches across all programs.</p>
+                </article>
+              </div>
+            </article>
+
+            <article class="dashboard-card" id="settings">
+              <div class="dashboard-card-head">
+                <h2>Settings</h2>
+                <a class="button button-secondary" href="#dashboard">Open</a>
+              </div>
+              <div class="feature-list">
+                <article>
+                  <h3>Notifications</h3>
+                  <p>Expiry alerts are on, request reminders are on, and route summaries are on.</p>
+                </article>
+                <article>
+                  <h3>Access scope</h3>
+                  <p>Staff account permissions remain tied to screening, inventory, and request review.</p>
+                </article>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="LactoCare home">
+          <span class="brand-mark">LC</span>
+          <span>
+            <strong>LactoCare</strong>
+            <small>Staff Dashboard</small>
+          </span>
+        </a>
+        <p>Screening, donor activity, milk requests, and inventory monitoring for staff.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li>Makati, Philippines</li>
+          <li><a href="mailto:info@lactocare.ph">info@lactocare.ph</a></li>
+          <li><a href="tel:+6328880123">(02) 888-0123</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li>Portal guidance</li>
+          <li>Donation support</li>
+          <li>Public services</li>
+        </ul>
+      </div>
+      <p class="footer-bottom">&copy; 2026 LactoCare. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

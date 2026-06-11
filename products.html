@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LactoCare products page with breastfeeding-related product catalog." />
+  <title>LactoCare | Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="LactoCare home">
+        <span class="brand-mark">LC</span>
+        <span>
+          <strong>LactoCare</strong>
+          <small>Products</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+      <div class="nav-actions">
+        <a class="button button-secondary nav-login" href="register.html">Login</a>
+        <a class="button button-accent" href="register.html">Register</a>
+      </div>
+      <nav class="site-nav" id="primary-navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="donor.html">Donor Registration</a>
+        <a href="consent.html">Consent Form</a>
+        <a href="history.html">My Donations</a>
+        <a href="staff.html">Staff Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="products.html">Products</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="products-hero reveal" id="top">
+        <p class="eyebrow">Breastfeeding essentials</p>
+        <h1>Products to support your <span class="orange-highlight">breastfeeding journey</span></h1>
+        <p class="products-hero-text">Curated essentials for nursing mothers, from pumps and storage to lactation support and comfort aids, all recommended by our milk bank staff.</p>
+        <div class="products-tags" aria-label="Catalog highlights">
+          <span class="products-tag">Staff-recommended</span>
+          <span class="products-tag">Quality-verified</span>
+          <span class="products-tag">Available in Makati</span>
+          <span class="products-tag">Mom-approved</span>
+        </div>
+      </section>
+
+      <section class="products-layout reveal" id="catalog">
+        <aside class="products-sidebar" aria-label="Product filters">
+          <div class="products-filter-card">
+            <h2>Categories</h2>
+            <nav class="products-category-list">
+              <a class="is-active" href="#catalog"><span>All products</span><strong>18</strong></a>
+              <a href="#catalog"><span>Breast pumps</span><strong>4</strong></a>
+              <a href="#catalog"><span>Milk storage</span><strong>3</strong></a>
+              <a href="#catalog"><span>Nursing wear</span><strong>3</strong></a>
+              <a href="#catalog"><span>Lactation support</span><strong>3</strong></a>
+              <a href="#catalog"><span>Comfort &amp; care</span><strong>3</strong></a>
+              <a href="#catalog"><span>Feeding accessories</span><strong>2</strong></a>
+            </nav>
+          </div>
+
+          <div class="products-filter-card">
+            <h2>Price range (₱)</h2>
+            <div class="products-price-row">
+              <label>
+                <span>Min</span>
+                <input type="number" value="0" aria-label="Minimum price" />
+              </label>
+              <label>
+                <span>Max</span>
+                <input type="number" value="5000" aria-label="Maximum price" />
+              </label>
+            </div>
+          </div>
+
+          <div class="products-filter-card">
+            <h2>Show only</h2>
+            <nav class="products-toggles" aria-label="Quick filters">
+              <a href="#catalog">New arrivals <strong>3</strong></a>
+              <a href="#catalog">Most popular <strong>5</strong></a>
+              <a href="#catalog">On sale <strong>4</strong></a>
+            </nav>
+          </div>
+        </aside>
+
+        <section class="products-main">
+          <div class="products-banner">
+            <div class="products-banner-icon" aria-hidden="true">👜</div>
+            <div class="products-banner-copy">
+              <h2>Donor essentials bundle - save 15%</h2>
+              <p>Milk storage bags, cooler bag, and a breast pump, everything you need to start donating.</p>
+            </div>
+            <a class="button button-accent products-banner-button" href="donor.html">Shop bundle</a>
+          </div>
+
+          <div class="products-toolbar">
+            <p><strong>18 products</strong></p>
+            <label class="products-sort">
+              <span>Sort by</span>
+              <select aria-label="Sort products">
+                <option>Featured</option>
+                <option>Popular</option>
+                <option>Price: low to high</option>
+                <option>Price: high to low</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="products-grid" aria-label="Product catalog">
+            <article class="product-card product-card-popular">
+              <div class="product-card-top is-peach">
+                <span class="product-badge">Popular</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">🍼</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">BREAST PUMP</p>
+                <h3>Double electric breast pump</h3>
+                <p class="product-desc">Hospital-grade suction with 2-phase expression technology. Quiet motor, travel-ready design.</p>
+                <div class="product-meta">
+                  <strong>₱4,800</strong>
+                  <div class="product-rating" aria-label="Rated 4.8 out of 5">★★★★★ <span>4.8 (124)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card product-card-new">
+              <div class="product-card-top is-cream">
+                <span class="product-badge is-new">New</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">👩‍🍼</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">BREAST PUMP</p>
+                <h3>Single manual breast pump</h3>
+                <p class="product-desc">Ergonomic single-hand operation. Gentle on sensitive tissue, ideal for quick sessions.</p>
+                <div class="product-meta">
+                  <strong>₱890</strong>
+                  <div class="product-rating" aria-label="Rated 4.5 out of 5">★★★★★ <span>4.5 (67)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card product-card-popular">
+              <div class="product-card-top is-cream">
+                <span class="product-badge">Popular</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">👩‍🍼</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">BREAST PUMP</p>
+                <h3>Wearable hands-free pump</h3>
+                <p class="product-desc">Discreet in-bra pump that lets you multitask. App-controlled, whisper-quiet.</p>
+                <div class="product-meta">
+                  <strong>₱6,200</strong>
+                  <div class="product-rating" aria-label="Rated 4.7 out of 5">★★★★★ <span>4.7 (89)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-card-top is-blue">
+                <span class="product-badge is-sale">Sale</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">🧰</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">BREAST PUMP</p>
+                <h3>Hospital-grade rental pump kit</h3>
+                <p class="product-desc">Monthly rental kit with sterile personal-use parts. Recommended for prematurity support.</p>
+                <div class="product-meta">
+                  <strong>₱1,500</strong>
+                  <div class="product-rating" aria-label="Rated 4.9 out of 5">★★★★★ <span>4.9 (43)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card product-card-popular">
+              <div class="product-card-top is-sky">
+                <span class="product-badge">Popular</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">🛍️</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">MILK STORAGE</p>
+                <h3>Breast milk storage bags (50 pcs)</h3>
+                <p class="product-desc">Pre-sterilized, double-zipper BPA-free bags. Lay-flat design fits at a glance.</p>
+                <div class="product-meta">
+                  <strong>₱520</strong>
+                  <div class="product-rating" aria-label="Rated 4.8 out of 5">★★★★★ <span>4.8 (206)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card product-card-new">
+              <div class="product-card-top is-sky">
+                <span class="product-badge is-new">New</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">🍼</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">MILK STORAGE</p>
+                <h3>Glass milk storage bottles (set of 6)</h3>
+                <p class="product-desc">Borosilicate glass bottles with calibrated markings. Zero odor transfer, easy to wash.</p>
+                <div class="product-meta">
+                  <strong>₱1,100</strong>
+                  <div class="product-rating" aria-label="Rated 4.6 out of 5">★★★★★ <span>4.6 (55)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card product-card-sale">
+              <div class="product-card-top is-blue">
+                <span class="product-badge is-sale">Sale</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">🧊</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">MILK STORAGE</p>
+                <h3>Insulated milk cooler bag</h3>
+                <p class="product-desc">Keeps expressed milk at a safe temperature for up to 24 hours. Includes ice pack sleeve.</p>
+                <div class="product-meta">
+                  <strong>₱780</strong>
+                  <div class="product-rating" aria-label="Rated 4.5 out of 5">★★★★★ <span>4.5 (88)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card product-card-popular">
+              <div class="product-card-top is-lilac">
+                <span class="product-badge">Popular</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">👚</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">NURSING WEAR</p>
+                <h3>Nursing bra (2-pack)</h3>
+                <p class="product-desc">Seamless, wire-free fit with easy one-hand clip access and breathable fabric.</p>
+                <div class="product-meta">
+                  <strong>₱990</strong>
+                  <div class="product-rating" aria-label="Rated 4.7 out of 5">★★★★★ <span>4.7 (64)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-card-top is-lilac">
+                <span class="product-badge is-new">New</span>
+                <button class="product-wishlist" type="button" aria-label="Save product">♡</button>
+                <div class="product-icon" aria-hidden="true">📘</div>
+              </div>
+              <div class="product-card-body">
+                <p class="product-kicker">NURSING WEAR</p>
+                <h3>Nursing cover and wrap</h3>
+                <p class="product-desc">360° full coverage wrap with a structured neckline so mom can see baby clearly.</p>
+                <div class="product-meta">
+                  <strong>₱650</strong>
+                  <div class="product-rating" aria-label="Rated 4.4 out of 5">★★★★★ <span>4.4 (72)</span></div>
+                </div>
+                <div class="product-actions">
+                  <a class="button button-accent product-add" href="#">Add to cart</a>
+                  <a class="product-link" href="#">View details</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="LactoCare home">
+          <span class="brand-mark">LC</span>
+          <span>
+            <strong>LactoCare</strong>
+            <small>Products</small>
+          </span>
+        </a>
+        <p>Breastfeeding essentials and support products for donors and families.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li>Makati, Philippines</li>
+          <li><a href="mailto:info@lactocare.ph">info@lactocare.ph</a></li>
+          <li><a href="tel:+6328880123">(02) 888-0123</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li>Shipping</li>
+          <li>Product advice</li>
+          <li>Donation support</li>
+        </ul>
+      </div>
+      <p class="footer-bottom">&copy; 2026 LactoCare. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
