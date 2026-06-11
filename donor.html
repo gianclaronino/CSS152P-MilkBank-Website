@@ -27,7 +27,7 @@
         <span class="sr-only">Open navigation</span>
       </button>
       <div class="nav-actions">
-        <a class="button button-secondary nav-login" href="register.html">Login</a>
+        <a class="button button-secondary nav-login" href="login.html">Login</a>
         <a class="button button-accent" href="register.html">Register</a>
       </div>
       <nav class="site-nav" id="primary-navigation">
@@ -49,249 +49,241 @@
               <p class="eyebrow">Registration flow</p>
               <h2>Complete the donor profile, medical screening, and account setup in one flow.</h2>
               <p class="donor-section-subtitle">All fields are in place for backend wiring later, but this page remains frontend-only.</p>
-            </div>
-            <a class="button button-secondary" href="consent.html">Proceed to consent</a>
-          </div>
+                      <div class="donor-stack">
+            <form class="form-card donor-wizard" data-donor-wizard novalidate>
+              <div class="donor-wizard-header">
+                <div>
+                  <p class="eyebrow">Step <span data-step-label>1</span> of <span data-step-total>5</span></p>
+                  <h3 data-step-title>Tell us who the donor is and how to reach them.</h3>
+                </div>
+              </div>
 
-          <div class="donor-stack">
-            <section class="form-card donor-section-card">
-              <div class="donor-section-copy">
-                <p class="eyebrow">Personal Information</p>
-                <h3>Tell us who the donor is and how to reach them.</h3>
-              </div>
-              <form class="donor-form-grid donor-form-grid-block">
-                <div class="donor-field">
-                  <label for="full-name">Full name</label>
-                  <input id="full-name" name="full_name" type="text" placeholder="Maria Santos" />
-                </div>
-                <div class="donor-field">
-                  <label for="preferred-name">Preferred name</label>
-                  <input id="preferred-name" name="preferred_name" type="text" placeholder="Maria" />
-                </div>
-                <div class="donor-field">
-                  <label for="dob">Date of birth</label>
-                  <input id="dob" name="date_of_birth" type="date" />
-                </div>
-                <div class="donor-field">
-                  <label for="sex">Sex</label>
-                  <select id="sex" name="sex">
-                    <option value="">Select sex</option>
-                    <option>Female</option>
-                    <option>Male</option>
-                    <option>Prefer not to say</option>
-                  </select>
-                </div>
-                <div class="donor-field">
-                  <label for="email">Email address</label>
-                  <input id="email" name="email" type="email" placeholder="name@example.com" />
-                </div>
-                <div class="donor-field">
-                  <label for="phone">Mobile number</label>
-                  <input id="phone" name="mobile_number" type="tel" placeholder="09xx xxx xxxx" />
-                </div>
-                <div class="donor-field donor-field-full">
-                  <label for="address">Home address</label>
-                  <input id="address" name="address" type="text" placeholder="House no., street, barangay" />
-                </div>
-                <div class="donor-field">
-                  <label for="city">City / municipality</label>
-                  <input id="city" name="city" type="text" placeholder="Makati City" />
-                </div>
-                <div class="donor-field">
-                  <label for="province">Province / region</label>
-                  <input id="province" name="province" type="text" placeholder="Metro Manila" />
-                </div>
-                <div class="donor-field">
-                  <label for="emergency-name">Emergency contact name</label>
-                  <input id="emergency-name" name="emergency_contact_name" type="text" placeholder="Contact person" />
-                </div>
-                <div class="donor-field">
-                  <label for="emergency-phone">Emergency contact number</label>
-                  <input id="emergency-phone" name="emergency_contact_number" type="tel" placeholder="09xx xxx xxxx" />
-                </div>
-              </form>
-            </section>
+              <div class="donor-wizard-viewport">
+                <div class="donor-wizard-track">
+                  <section class="donor-step-card donor-step is-active" data-step-title="Personal Information" data-step-note="Fields on this slide must be complete before you can continue.">
+                    <div class="donor-form-grid donor-form-grid-block">
+                      <div class="donor-field">
+                        <label for="full-name">Full name</label>
+                        <input id="full-name" name="full_name" type="text" placeholder="Maria Santos" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="preferred-name">Preferred name</label>
+                        <input id="preferred-name" name="preferred_name" type="text" placeholder="Maria" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="dob">Date of birth</label>
+                        <input id="dob" name="date_of_birth" type="date" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="sex">Sex</label>
+                        <select id="sex" name="sex" required>
+                          <option value="">Select sex</option>
+                          <option>Female</option>
+                          <option>Male</option>
+                          <option>Prefer not to say</option>
+                        </select>
+                      </div>
+                      <div class="donor-field">
+                        <label for="email">Email address</label>
+                        <input id="email" name="email" type="email" placeholder="name@example.com" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="phone">Mobile number</label>
+                        <input id="phone" name="mobile_number" type="tel" placeholder="09xx xxx xxxx" required />
+                      </div>
+                      <div class="donor-field donor-field-full">
+                        <label for="address">Home address</label>
+                        <input id="address" name="address" type="text" placeholder="House no., street, barangay" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="city">City / municipality</label>
+                        <input id="city" name="city" type="text" placeholder="Makati City" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="province">Province / region</label>
+                        <input id="province" name="province" type="text" placeholder="Metro Manila" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="emergency-name">Emergency contact name</label>
+                        <input id="emergency-name" name="emergency_contact_name" type="text" placeholder="Contact person" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="emergency-phone">Emergency contact number</label>
+                        <input id="emergency-phone" name="emergency_contact_number" type="tel" placeholder="09xx xxx xxxx" required />
+                      </div>
+                    </div>
+                  </section>
 
-            <section class="form-card donor-section-card">
-              <div class="donor-section-copy">
-                <p class="eyebrow">Medical History</p>
-                <h3>Record the health details needed for donor screening.</h3>
-              </div>
-              <form class="donor-form-grid donor-form-grid-block">
-                <div class="donor-field">
-                  <label for="infant-age">Current age of infant</label>
-                  <input id="infant-age" name="infant_age" type="text" placeholder="e.g. 3 months" />
-                </div>
-                <div class="donor-field">
-                  <label for="breastfeeding">Are you currently breastfeeding?</label>
-                  <select id="breastfeeding" name="breastfeeding_status">
-                    <option value="">Select one</option>
-                    <option>Yes, exclusively</option>
-                    <option>Yes, partially</option>
-                    <option>No</option>
-                  </select>
-                </div>
-                <div class="donor-field">
-                  <label for="medications">Any prescribed medications?</label>
-                  <select id="medications" name="prescribed_medications">
-                    <option value="">Select one</option>
-                    <option>No</option>
-                    <option>Yes</option>
-                  </select>
-                </div>
-                <div class="donor-field">
-                  <label for="hiv-status">HIV / Hepatitis B / C status</label>
-                  <select id="hiv-status" name="infectious_status">
-                    <option value="">Select one</option>
-                    <option>Negative (tested)</option>
-                    <option>Pending confirmation</option>
-                    <option>Requires review</option>
-                  </select>
-                </div>
-                <div class="donor-field">
-                  <label for="smoking">Smoking / tobacco use</label>
-                  <select id="smoking" name="smoking_status">
-                    <option value="">Select one</option>
-                    <option>Non-smoker</option>
-                    <option>Occasional</option>
-                    <option>Regular use</option>
-                  </select>
-                </div>
-                <div class="donor-field">
-                  <label for="alcohol">Alcohol consumption</label>
-                  <select id="alcohol" name="alcohol_use">
-                    <option value="">Select one</option>
-                    <option>None</option>
-                    <option>Occasional</option>
-                    <option>Regular</option>
-                  </select>
-                </div>
-                <div class="donor-field">
-                  <label for="allergies">Known allergies</label>
-                  <input id="allergies" name="allergies" type="text" placeholder="List allergies or none" />
-                </div>
-                <div class="donor-field">
-                  <label for="recent-illness">Recent illness or surgery</label>
-                  <input id="recent-illness" name="recent_illness" type="text" placeholder="Describe or leave blank if none" />
-                </div>
-                <div class="donor-field donor-field-full">
-                  <label for="additional-history">Additional medical notes</label>
-                  <textarea id="additional-history" name="additional_medical_notes" placeholder="Add any relevant screening notes, medications, or recent treatments."></textarea>
-                </div>
-              </form>
-            </section>
+                  <section class="donor-step-card donor-step" data-step-title="Medical History" data-step-note="Every medical field here is required before the next slide unlocks.">
+                    <div class="donor-form-grid donor-form-grid-block">
+                      <div class="donor-field">
+                        <label for="infant-age">Current age of infant</label>
+                        <input id="infant-age" name="infant_age" type="text" placeholder="e.g. 3 months" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="breastfeeding">Are you currently breastfeeding?</label>
+                        <select id="breastfeeding" name="breastfeeding_status" required>
+                          <option value="">Select one</option>
+                          <option>Yes, exclusively</option>
+                          <option>Yes, partially</option>
+                          <option>No</option>
+                        </select>
+                      </div>
+                      <div class="donor-field">
+                        <label for="medications">Any prescribed medications?</label>
+                        <select id="medications" name="prescribed_medications" required>
+                          <option value="">Select one</option>
+                          <option>No</option>
+                          <option>Yes</option>
+                        </select>
+                      </div>
+                      <div class="donor-field">
+                        <label for="hiv-status">HIV / Hepatitis B / C status</label>
+                        <select id="hiv-status" name="infectious_status" required>
+                          <option value="">Select one</option>
+                          <option>Negative (tested)</option>
+                          <option>Pending confirmation</option>
+                          <option>Requires review</option>
+                        </select>
+                      </div>
+                      <div class="donor-field">
+                        <label for="smoking">Smoking / tobacco use</label>
+                        <select id="smoking" name="smoking_status" required>
+                          <option value="">Select one</option>
+                          <option>Non-smoker</option>
+                          <option>Occasional</option>
+                          <option>Regular use</option>
+                        </select>
+                      </div>
+                      <div class="donor-field">
+                        <label for="alcohol">Alcohol consumption</label>
+                        <select id="alcohol" name="alcohol_use" required>
+                          <option value="">Select one</option>
+                          <option>None</option>
+                          <option>Occasional</option>
+                          <option>Regular</option>
+                        </select>
+                      </div>
+                      <div class="donor-field">
+                        <label for="allergies">Known allergies</label>
+                        <input id="allergies" name="allergies" type="text" placeholder="List allergies or none" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="recent-illness">Recent illness or surgery</label>
+                        <input id="recent-illness" name="recent_illness" type="text" placeholder="Describe or leave blank if none" required />
+                      </div>
+                      <div class="donor-field donor-field-full">
+                        <label for="additional-history">Additional medical notes</label>
+                        <textarea id="additional-history" name="additional_medical_notes" placeholder="Add any relevant screening notes, medications, or recent treatments." required></textarea>
+                      </div>
+                    </div>
+                  </section>
 
-            <section class="form-card donor-section-card">
-              <div class="donor-section-copy">
-                <p class="eyebrow">Program Selection</p>
-                <h3>Choose the donation path and preferred collection arrangement.</h3>
-              </div>
-              <form class="donor-form-grid donor-form-grid-block">
-                <div class="donor-field">
-                  <label for="program">Donation program</label>
-                  <select id="program" name="donation_program">
-                    <option value="">Select program</option>
-                    <option>Supsup Todo</option>
-                    <option>Milky Way</option>
-                    <option>Mom's Act</option>
-                  </select>
-                </div>
-                <div class="donor-field">
-                  <label for="collection-type">Collection type</label>
-                  <select id="collection-type" name="collection_type">
-                    <option value="">Select one</option>
-                    <option>Drop-off</option>
-                    <option>Pick-up</option>
-                    <option>Home collection</option>
-                  </select>
-                </div>
-                <div class="donor-field">
-                  <label for="schedule">Preferred schedule</label>
-                  <input id="schedule" name="preferred_schedule" type="text" placeholder="e.g. Weekdays, 9:00 AM - 12:00 PM" />
-                </div>
-                <div class="donor-field">
-                  <label for="frequency">Donation frequency</label>
-                  <select id="frequency" name="donation_frequency">
-                    <option value="">Select one</option>
-                    <option>One-time</option>
-                    <option>Weekly</option>
-                    <option>Bi-weekly</option>
-                    <option>Monthly</option>
-                  </select>
-                </div>
-                <div class="donor-field donor-field-full">
-                  <label for="program-notes">Program notes</label>
-                  <textarea id="program-notes" name="program_notes" placeholder="Add pickup notes, storage preferences, or coordination details."></textarea>
-                </div>
-              </form>
-            </section>
+                  <section class="donor-step-card donor-step" data-step-title="Program Selection" data-step-note="Pick a program and collection arrangement before you continue.">
+                    <div class="donor-form-grid donor-form-grid-block">
+                      <div class="donor-field">
+                        <label for="program">Donation program</label>
+                        <select id="program" name="donation_program" required>
+                          <option value="">Select program</option>
+                          <option>Supsup Todo</option>
+                          <option>Milky Way</option>
+                          <option>Mom's Act</option>
+                        </select>
+                      </div>
+                      <div class="donor-field">
+                        <label for="collection-type">Collection type</label>
+                        <select id="collection-type" name="collection_type" required>
+                          <option value="">Select one</option>
+                          <option>Drop-off</option>
+                          <option>Pick-up</option>
+                          <option>Home collection</option>
+                        </select>
+                      </div>
+                      <div class="donor-field">
+                        <label for="schedule">Preferred schedule</label>
+                        <input id="schedule" name="preferred_schedule" type="text" placeholder="e.g. Weekdays, 9:00 AM - 12:00 PM" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="frequency">Donation frequency</label>
+                        <select id="frequency" name="donation_frequency" required>
+                          <option value="">Select one</option>
+                          <option>One-time</option>
+                          <option>Weekly</option>
+                          <option>Bi-weekly</option>
+                          <option>Monthly</option>
+                        </select>
+                      </div>
+                      <div class="donor-field donor-field-full">
+                        <label for="program-notes">Program notes</label>
+                        <textarea id="program-notes" name="program_notes" placeholder="Add pickup notes, storage preferences, or coordination details." required></textarea>
+                      </div>
+                    </div>
+                  </section>
 
-            <section class="form-card donor-section-card">
-              <div class="donor-section-copy">
-                <p class="eyebrow">Eligibility Review</p>
-                <h3>Confirm the donor understands the screening requirements.</h3>
-              </div>
-              <div class="donor-check-panel">
-                <h3>Preliminary eligibility check</h3>
-                <ul class="donor-check-list">
-                  <li>Infant under 12 months - eligible</li>
-                  <li>Non-smoker - eligible</li>
-                  <li>No reported communicable disease - eligible</li>
-                  <li>HIV/Hepatitis status: awaiting lab confirmation</li>
-                </ul>
-              </div>
-              <div class="donor-confirm-grid">
-                <label class="consent-accept donor-accept-row">
-                  <input type="checkbox" name="guidelines_acknowledged" />
-                  <span>I have reviewed the donor screening requirements and understand I may be contacted for further review.</span>
-                </label>
-                <label class="consent-accept donor-accept-row">
-                  <input type="checkbox" name="information_accuracy" />
-                  <span>I confirm that the information provided is accurate to the best of my knowledge.</span>
-                </label>
-              </div>
-            </section>
+                  <section class="donor-step-card donor-step" data-step-title="Eligibility Review" data-step-note="Review the checks carefully and confirm both acknowledgements to unlock the final slide.">
+                    <div class="donor-check-panel">
+                      <h3>Preliminary eligibility check</h3>
+                      <ul class="donor-check-list">
+                        <li>Infant under 12 months - eligible</li>
+                        <li>Non-smoker - eligible</li>
+                        <li>No reported communicable disease - eligible</li>
+                        <li>HIV/Hepatitis status: awaiting lab confirmation</li>
+                      </ul>
+                    </div>
+                    <div class="donor-confirm-grid">
+                      <label class="consent-accept donor-accept-row">
+                        <input type="checkbox" name="guidelines_acknowledged" required />
+                        <span>I have reviewed the donor screening requirements and understand I may be contacted for further review.</span>
+                      </label>
+                      <label class="consent-accept donor-accept-row">
+                        <input type="checkbox" name="information_accuracy" required />
+                        <span>I confirm that the information provided is accurate to the best of my knowledge.</span>
+                      </label>
+                    </div>
+                  </section>
 
-            <section class="form-card donor-section-card">
-              <div class="donor-section-copy">
-                <p class="eyebrow">Account Setup</p>
-                <h3>Create the donor account credentials for future access.</h3>
+                  <section class="donor-step-card donor-step" data-step-title="Account Setup" data-step-note="Finish the account details and accept the terms to complete registration.">
+                    <div class="donor-form-grid donor-form-grid-block">
+                      <div class="donor-field">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" type="text" placeholder="Choose a username" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" placeholder="Create a password" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="confirm-password">Confirm password</label>
+                        <input id="confirm-password" name="confirm_password" type="password" placeholder="Re-enter password" required />
+                      </div>
+                      <div class="donor-field">
+                        <label for="preferred-contact">Preferred contact method</label>
+                        <select id="preferred-contact" name="preferred_contact_method" required>
+                          <option value="">Select one</option>
+                          <option>Email</option>
+                          <option>Phone</option>
+                          <option>SMS</option>
+                        </select>
+                      </div>
+                      <div class="donor-field donor-field-full">
+                        <label class="consent-accept donor-accept-row">
+                          <input type="checkbox" name="terms_acknowledged" required />
+                          <span>I agree to the donor registration terms and understand that my information will be reviewed before activation.</span>
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
               </div>
-              <form class="donor-form-grid donor-form-grid-block">
-                <div class="donor-field">
-                  <label for="username">Username</label>
-                  <input id="username" name="username" type="text" placeholder="Choose a username" />
-                </div>
-                <div class="donor-field">
-                  <label for="password">Password</label>
-                  <input id="password" name="password" type="password" placeholder="Create a password" />
-                </div>
-                <div class="donor-field">
-                  <label for="confirm-password">Confirm password</label>
-                  <input id="confirm-password" name="confirm_password" type="password" placeholder="Re-enter password" />
-                </div>
-                <div class="donor-field">
-                  <label for="preferred-contact">Preferred contact method</label>
-                  <select id="preferred-contact" name="preferred_contact_method">
-                    <option value="">Select one</option>
-                    <option>Email</option>
-                    <option>Phone</option>
-                    <option>SMS</option>
-                  </select>
-                </div>
-                <div class="donor-field donor-field-full">
-                  <label class="consent-accept donor-accept-row">
-                    <input type="checkbox" name="terms_acknowledged" />
-                    <span>I agree to the donor registration terms and understand that my information will be reviewed before activation.</span>
-                  </label>
-                </div>
-              </form>
-            </section>
 
-            <div class="donor-actions action-row-spaced">
-              <button class="button button-secondary" type="button">Save Draft</button>
-              <button class="button button-primary" type="button">Continue to Consent</button>
-            </div>
+              <div class="donor-actions action-row-spaced donor-wizard-actions">
+                <button class="button button-secondary" type="button" data-step-action="back">Back</button>
+                <div class="donor-actions-right">
+                  <button class="button button-secondary" type="button" data-step-action="save">Save Draft</button>
+                  <button class="button button-primary" type="button" data-step-action="next">Next</button>
+                </div>
+              </div>
+            </form>
           </div>
         </section>
       </section>

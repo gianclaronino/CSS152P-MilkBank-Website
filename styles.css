@@ -1189,20 +1189,52 @@ a {
   gap: 1rem;
 }
 
+.facility-grid-wide {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .facility-card {
   display: flex;
   align-items: center;
   gap: 0.9rem;
+  min-height: 8rem;
+  overflow: hidden;
 }
 
 .facility-img {
   display: grid;
   place-items: center;
-  width: 4rem;
-  height: 4rem;
+  width: 5.5rem;
+  height: 5.5rem;
   border-radius: 16px;
-  font-size: 1.65rem;
+  font-size: 2rem;
+  flex: 0 0 auto;
   box-shadow: inset 0 0 0 1px rgba(23, 49, 59, 0.06);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.facility-card-screening {
+  background: linear-gradient(180deg, rgba(243, 232, 213, 0.95) 0%, rgba(255, 255, 255, 0.95) 64%);
+}
+
+.facility-card-cold {
+  background: linear-gradient(180deg, rgba(219, 242, 241, 0.96) 0%, rgba(255, 255, 255, 0.95) 64%);
+}
+
+.facility-card-pasteur {
+  background: linear-gradient(180deg, rgba(232, 245, 244, 0.96) 0%, rgba(255, 255, 255, 0.95) 64%);
+}
+
+.facility-card-screening .facility-img {
+  background: rgba(208, 162, 95, 0.14);
+}
+
+.facility-card-cold .facility-img {
+  background: rgba(82, 176, 186, 0.14);
+}
+
+.facility-card-pasteur .facility-img {
+  background: rgba(229, 119, 77, 0.14);
 }
 
 .facility-name,
@@ -1513,6 +1545,99 @@ a {
   gap: 1rem;
 }
 
+.donor-wizard {
+  display: grid;
+  gap: 1rem;
+}
+
+.donor-wizard-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.donor-step-note {
+  margin: 0;
+  max-width: 28ch;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.donor-wizard-viewport {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.donor-wizard-track {
+  display: flex;
+  width: 100%;
+  transform: translateX(0);
+  transition: transform 280ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  will-change: transform;
+}
+
+.donor-step-card {
+  flex: 0 0 100%;
+  min-width: 100%;
+  min-height: 100%;
+  display: grid;
+  gap: 1rem;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.donor-step-card:first-child {
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+}
+
+.donor-step-card:last-child {
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.donor-step-card:not(.is-active) {
+  visibility: hidden;
+}
+
+.donor-step .donor-form-grid-block,
+.donor-step .donor-confirm-grid {
+  opacity: 0;
+  transform: translateX(18px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.donor-step.is-active .donor-form-grid-block,
+.donor-step.is-active .donor-confirm-grid {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.donor-wizard-actions {
+  display: flex;
+  width: 100%;
+  justify-self: stretch;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.donor-actions-right {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.donor-stepper-progress,
+.donor-step-error,
+.donor-stepper,
+.donor-stepper-header,
+.donor-stepper-viewport,
+.donor-stepper-track {
+  display: none;
+}
+
 .donor-section-head {
   display: flex;
   align-items: flex-start;
@@ -1545,6 +1670,8 @@ a {
 }
 
 .donor-form-grid-block {
+  width: min(100%, 860px);
+  justify-self: center;
   margin-top: 0.2rem;
 }
 
@@ -1626,6 +1753,8 @@ a {
 
 .donor-actions {
   display: flex;
+  width: 100%;
+  justify-self: stretch;
   justify-content: flex-end;
   gap: 0.75rem;
 }
@@ -2238,6 +2367,10 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .facility-grid-wide {
+    grid-template-columns: 1fr;
+  }
+
   .products-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2337,6 +2470,20 @@ a {
     flex-direction: column;
   }
 
+  .donor-wizard-header,
+  .donor-wizard-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .donor-step-note {
+    text-align: left;
+  }
+
+  .donor-actions-right {
+    flex-direction: column;
+  }
+
   .donor-actions,
   .consent-actions {
     justify-content: stretch;
@@ -2384,5 +2531,11 @@ a {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .donor-wizard-track,
+  .donor-step .donor-form-grid-block,
+  .donor-step .donor-confirm-grid {
+    transition: none !important;
   }
 }

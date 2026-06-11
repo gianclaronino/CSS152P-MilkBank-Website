@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LactoCare login page for existing users." />
+  <title>LactoCare | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="LactoCare home">
+        <span class="brand-mark">LC</span>
+        <span>
+          <strong>LactoCare</strong>
+          <small>Login portal</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+      <nav class="site-nav" id="primary-navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="donor.html">Donor Registration</a>
+        <a href="consent.html">Consent Form</a>
+        <a href="history.html">My Donations</a>
+        <a href="staff.html">Staff Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="products.html">Products</a>
+      </nav>
+    </header>
+
+    <main class="auth-shell login-shell">
+      <section class="auth-panel reveal">
+        <div>
+          <a class="brand" href="index.html" aria-label="LactoCare home">
+            <span class="brand-mark">LC</span>
+            <span>
+              <strong>LactoCare</strong>
+              <small>Secure sign in</small>
+            </span>
+          </a>
+          <p class="eyebrow auth-kicker">Welcome back</p>
+          <h1>Log in to continue where you left off.</h1>
+          <p class="auth-intro">
+            Access donor tools, consent forms, and staff workflows from a single entry point.
+          </p>
+        </div>
+        <div class="auth-card-stack">
+          <div class="auth-stat">
+            <strong>Fast access</strong>
+            <p>Jump back into the right portal without re-registering.</p>
+          </div>
+          <div class="auth-stat">
+            <strong>Clear routing</strong>
+            <p>Choose donor, staff, or admin access after sign in.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-form-panel reveal">
+        <p class="eyebrow">Login</p>
+        <h2>Sign in to your account.</h2>
+        <p class="auth-note">Use your registered email or username and password to continue.</p>
+
+        <form>
+          <div class="field-grid">
+            <div>
+              <label for="login-identifier">Email or username</label>
+              <input id="login-identifier" type="text" placeholder="name@example.com" required />
+            </div>
+            <div>
+              <label for="login-password">Password</label>
+              <input id="login-password" type="password" placeholder="Enter your password" required />
+            </div>
+          </div>
+          <div class="auth-actions">
+            <button class="button button-primary" type="button">Sign in</button>
+            <div class="auth-links">
+              <a href="register.html">Create a new account</a>
+              <a href="donor.html">Donor registration</a>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
