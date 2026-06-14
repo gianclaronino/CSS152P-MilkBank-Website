@@ -162,7 +162,8 @@ if (donorWizard) {
         return;
       }
 
-      window.location.href = 'consent.html';
+      alert('Registration successful! Redirecting to your dashboard...');
+      window.location.href = 'history.html';
     });
   }
 
@@ -174,3 +175,101 @@ if (donorWizard) {
 
   updateWizard();
 }
+
+const countUpObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const finalValue = parseInt(element.dataset.value, 10);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        const animateCount = (currentTime) => {
+          const elapsedTime = currentTime - startTime;
+          const progress = Math.min(elapsedTime / duration, 1);
+          const currentValue = Math.floor(progress * finalValue);
+
+          element.textContent = `${currentValue} ${element.textContent.split(' ')[1]}`;
+
+          if (progress < 1) {
+            requestAnimationFrame(animateCount);
+          } else {
+            element.textContent = `${finalValue} ${element.textContent.split(' ')[1]}`;
+          }
+        };
+
+        requestAnimationFrame(animateCount);
+        observer.unobserve(element);
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+document.querySelectorAll('.count-up').forEach((element) => {
+  countUpObserver.observe(element);
+});
+
+const carousel = document.querySelector('.product-carousel-inner');
+const prevButton = document.querySelector('.carousel-button.prev');
+const nextButton = document.querySelector('.carousel-button.next');
+const cards = Array.from(document.querySelectorAll('.product-carousel .product-card'));
+let currentIndex = 0;
+let autoRotateInterval;
+
+function updateCarousel(manual = false) {
+  if (cards.length === 0) return;
+  const parent = document.querySelector('.product-carousel');
+  const gap = parseInt(getComputedStyle(carousel).gap) || 0;
+  const cardWidth = cards[0].offsetWidth + gap;
+  const offset = (parent.offsetWidth / 2) - (cards[0].offsetWidth / 2);
+  carousel.style.transform = `translateX(${offset - (currentIndex * cardWidth)}px)`;
+
+  cards.forEach((card, index) => {
+    card.classList.toggle('active', index === currentIndex);
+  });
+
+  if (manual) {
+    stopAutoRotate();
+    startAutoRotate();
+  }
+}
+
+function startAutoRotate() {
+  autoRotateInterval = setInterval(() => {
+    currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+    updateCarousel();
+  }, 3000);
+}
+
+function stopAutoRotate() {
+  clearInterval(autoRotateInterval);
+}
+
+if (prevButton && nextButton) {
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : cards.length - 1;
+    updateCarousel(true);
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+    updateCarousel(true);
+  });
+
+  if (cards.length > 0) {
+    cards[0].classList.add('active');
+    updateCarousel();
+    startAutoRotate();
+  }
+
+  document.querySelectorAll('.product-like-button').forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('liked');
+    });
+  });
+
+  window.addEventListener('resize', () => updateCarousel());
+}
+

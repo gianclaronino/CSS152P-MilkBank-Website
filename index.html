@@ -37,7 +37,6 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="donor.html">Donor Registration</a>
-        <a href="consent.html">Consent Form</a>
         <a href="history.html">My Donations</a>
         <a href="staff.html">Staff Dashboard</a>
         <a href="inventory.html">Inventory</a>
@@ -62,19 +61,19 @@
             <div class="mini-grid">
               <article>
                 <span>Available stock</span>
-                <strong>128 liters</strong>
+                <strong class="count-up" data-value="128">0 liters</strong>
               </article>
               <article>
                 <span>Pending screenings</span>
-                <strong>14 donors</strong>
+                <strong class="count-up" data-value="14">0 donors</strong>
               </article>
               <article>
                 <span>Ready for release</span>
-                <strong>23 batches</strong>
+                <strong class="count-up" data-value="23">0 batches</strong>
               </article>
               <article>
                 <span>Scheduled visits</span>
-                <strong>09 routes</strong>
+                <strong class="count-up" data-value="9">0 routes</strong>
               </article>
             </div>
           </div>
@@ -82,12 +81,110 @@
           <div class="glass-card hero-card hero-card-side">
             <p>Fast access</p>
             <ul>
-              <li>Donor registration</li>
-              <li>Consent form flow</li>
+              <li>Donor profile setup</li>
+              <li>Integrated consent flow</li>
               <li>Batch tracking</li>
               <li>Recipient request review</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section class="how-it-works reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Our Process</p>
+          <h2>How it works</h2>
+        </div>
+        <div class="how-it-works-grid">
+          <article class="how-it-works-step">
+            <div class="how-it-works-icon" aria-hidden="true">1</div>
+            <h3>Register Online</h3>
+            <p>Fill out our secure online form to start your journey as a milk donor. It’s quick, easy, and the first step to making a difference.</p>
+          </article>
+          <article class="how-it-works-step">
+            <div class="how-it-works-icon" aria-hidden="true">2</div>
+            <h3>Health Screening</h3>
+            <p>Our team will guide you through a simple health screening process to ensure the safety of the milk for our recipients.</p>
+          </article>
+          <article class="how-it-works-step">
+            <div class="how-it-works-icon" aria-hidden="true">3</div>
+            <h3>Donate Milk</h3>
+            <p>Once approved, you can donate your milk at our facility or arrange for a pickup. Every drop counts!</p>
+          </article>
+          <article class="how-it-works-step">
+            <div class="how-it-works-icon" aria-hidden="true">4</div>
+            <h3>Nourish a Baby</h3>
+            <p>Your donation is carefully processed and given to premature and sick infants, giving them a fighting chance at a healthy life.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="product-carousel-section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Our Products</p>
+          <h2>Support for Your Journey</h2>
+        </div>
+        <div class="product-carousel">
+          <button class="carousel-button side-arrow prev" aria-label="Previous product">&#x2039;</button>
+          <div class="product-carousel-inner">
+            <article class="product-card">
+              <div class="product-image-frame">
+                <div class="product-icon is-peach" aria-hidden="true">🍼</div>
+              </div>
+              <div class="product-card-body">
+                <div class="product-info">
+                  <h3>Double electric breast pump</h3>
+                  <p class="product-price">₱4,800</p>
+                </div>
+                <button class="product-like-button" aria-label="Like this product">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image-frame">
+                <div class="product-icon is-sky" aria-hidden="true">🛍️</div>
+              </div>
+              <div class="product-card-body">
+                <div class="product-info">
+                  <h3>Breast milk storage bags</h3>
+                  <p class="product-price">₱520</p>
+                </div>
+                <button class="product-like-button" aria-label="Like this product">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image-frame">
+                <div class="product-icon is-lilac" aria-hidden="true">👚</div>
+              </div>
+              <div class="product-card-body">
+                <div class="product-info">
+                  <h3>Nursing bra (2-pack)</h3>
+                  <p class="product-price">₱990</p>
+                </div>
+                <button class="product-like-button" aria-label="Like this product">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image-frame">
+                <div class="product-icon is-cream" aria-hidden="true">👩‍🍼</div>
+              </div>
+              <div class="product-card-body">
+                <div class="product-info">
+                  <h3>Wearable hands-free pump</h3>
+                  <p class="product-price">₱6,200</p>
+                </div>
+                <button class="product-like-button" aria-label="Like this product">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-button side-arrow next" aria-label="Next product">&#x203A;</button>
         </div>
       </section>
 
@@ -149,3 +246,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
