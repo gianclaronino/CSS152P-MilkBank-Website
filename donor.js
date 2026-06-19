@@ -1,0 +1,151 @@
+/**
+ * Donor Registration Form Handler
+ * Handles the multi-step donor wizard form submission
+ */
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', async () => {
+  await initDonorForm();
+  setupDonorWizard();
+});
+
+/**
+ * Initialize donor form - check login status and pre-fill if possible
+ */
+async function initDonorForm() {
+  const user = await window.supabase.getCurrentUser();
+  
+  if (!user) {
+    // Redirect to login if not authenticated
+    const loginBtn = document.querySelector('.nav-login');
+    if (confirm('You must be logged in to register as a donor. Go to login?')) {
+      window.location.href = 'login.html';
+    }
+    return;
+  }
+  
+  // Pre-fill email for logged-in users
+  const emailField = document.getElementById('email');
+  if (emailField) {
+    emailField.value = user.email;
+    emailField.disabled = true;
+  }
+}
+
+/**
+ * Setup wizard navigation (next/back buttons)
+ */
+function setupDonorWizard() {
+  const wizard = document.querySelector('[data-donor-wizard]');
+  if (!wizard) return;
+
+  // Handle back button
+  wizard.addEventListener('click', (e) => {
+    if (e.target.dataset.stepAction === 'back') {
+      previousStep();
+    } else if (e.target.dataset.stepAction === 'next' && e.target.type !== 'submit') {
+      e.preventDefault();
+      nextStep();
+    }
+  });
+}
+
+/**
+ * Navigate to next step
+ */
+function nextStep() {
+  const wizard = document.querySelector('[data-donor-wizard]');
+  const activeStep = wizard.querySelector('.donor-step.is-active');
+  const steps = Array.from(wizard.querySelectorAll('.donor-step'));
+  const currentIndex = steps.indexOf(activeStep);
+  
+  if (currentIndex < steps.length - 1) {
+    activeStep.classList.remove('is-active');
+    steps[currentIndex + 1].classList.add('is-active');
+    updateStepLabel();
+  }
+}
+
+/**
+ * Navigate to previous step
+ */
+function previousStep() {
+  const wizard = document.querySelector('[data-donor-wizard]');
+  const activeStep = wizard.querySelector('.donor-step.is-active');
+  const steps = Array.from(wizard.querySelectorAll('.donor-step'));
+  const currentIndex = steps.indexOf(activeStep);
+  
+  if (currentIndex > 0) {
+    activeStep.classList.remove('is-active');
+    steps[currentIndex - 1].classList.add('is-active');
+    updateStepLabel();
+  }
+}
+
+/**
+ * Update the step counter and title
+ */
+function updateStepLabel() {
+  const wizard = document.querySelector('[data-donor-wizard]');
+  const activeStep = wizard.querySelector('.donor-step.is-active');
+  const steps = Array.from(wizard.querySelectorAll('.donor-step'));
+  const currentIndex = steps.indexOf(activeStep) + 1;
+  
+  const stepLabel = wizard.querySelector('[data-step-label]');
+  const stepTitle = wizard.querySelector('[data-step-title]');
+  
+  if (stepLabel) stepLabel.textContent = currentIndex;
+  if (stepTitle) stepTitle.textContent = activeStep.dataset.stepTitle || 'Step ' + currentIndex;
+}
+
+/**
+ * Handle final form submission - creates donor profile in database
+ */
+async function handleDonorRegistration(event) {
+  event.preventDefault();
+
+  // Verify authentication
+  const user = await window.supabase.getCurrentUser();
+  if (!user) {
+    alert('You must be logged in to complete donor registration.');
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Get blood type from form if available
+  const bloodTypeField = document.getElementById('hiv-status');
+  const bloodType = 'O+'; // Default - you could make this selectable
+
+  // Show loading state
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalText = submitBtn?.textContent;
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Completing registration...';
+  }
+
+  try {
+    // Create donor profile
+    const result = await window.supabase.createDonorProfile({
+      blood_type: bloodType,
+      status: 'active'
+    });
+
+    if (!result.success) {
+      throw new Error(result.error);
+    }
+
+    // Success
+    alert('Congratulations! Your donor profile has been created. You can now track your donations.');
+    window.location.href = 'history.html';
+
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error completing registration: ' + error.message);
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  }
+}

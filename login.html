@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="auth.js"></script>
 </head>
 <body>
   <div class="page-shell">
@@ -70,19 +74,21 @@
         <h2>Sign in to your account.</h2>
         <p class="auth-note">Use your registered email or username and password to continue.</p>
 
-        <form>
+        <form onsubmit="handleLogin(event)">
           <div class="field-grid">
+            <div id="login-error" style="display: none;"></div>
+            <div id="login-success" style="display: none;"></div>
             <div>
               <label for="login-identifier">Email or username</label>
-              <input id="login-identifier" type="text" placeholder="name@example.com" required />
+              <input type="email" id="login-email" placeholder="Email" required />
             </div>
             <div>
               <label for="login-password">Password</label>
-              <input id="login-password" type="password" placeholder="Enter your password" required />
+              <input type="password" id="login-password" placeholder="Password" required />
             </div>
           </div>
           <div class="auth-actions">
-            <button class="button button-primary" type="button">Sign in</button>
+            <button class="button button-primary" type="submit">Sign in</button>
             <div class="auth-links">
               <a href="register.html">Create a new account</a>
               <a href="donor.html">Donor registration</a>
