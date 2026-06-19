@@ -20,10 +20,13 @@ async function initStaffDashboard() {
   // Get user profile
   const profile = await window.supabase.getUserProfile();
   if (!profile || (profile.user_type !== 'staff' && profile.user_type !== 'admin')) {
-    alert('Access denied. Staff members only.');
+    // Silently redirect if not staff/admin
     window.location.href = 'index.html';
     return;
   }
+
+  // Update navigation visibility
+  updateNavVisibility(profile.user_type);
 
   // Update greeting
   const greeting = document.querySelector('.orange-highlight');
@@ -201,6 +204,39 @@ function setupLogoutButton() {
       if (result.success) {
         window.location.href = 'index.html';
       }
+    });
+  }
+}
+
+/**
+ * Helper function to require authentication
+ */
+function requireAuth(redirectUrl = 'login.html') {
+  const user = window.supabase.getCurrentUser();
+  if (!user) {
+    window.location.href = redirectUrl;
+    return null;
+  }
+  return user;
+}
+
+/**
+ * Update navigation visibility based on user type
+ */
+function updateNavVisibility(userType) {
+  // Get all nav links
+  const donorLinks = document.querySelectorAll('a[href="donor.html"], a[href="history.html"]');
+  const staffLinks = document.querySelectorAll('a[href="staff.html"]');
+
+  if (userType === 'donor') {
+    // Hide staff links for donors
+    staffLinks.forEach(link => {
+      link.style.display = 'none';
+    });
+  } else if (userType === 'staff' || userType === 'admin') {
+    // Hide donor links for staff/admin
+    donorLinks.forEach(link => {
+      link.style.display = 'none';
     });
   }
 }

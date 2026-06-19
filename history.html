@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="auth.js"></script>
 </head>
 <body>
   <div class="page-shell">
@@ -47,26 +51,26 @@
           <div>
             <p class="eyebrow">Donation history</p>
             <h1>My Donations</h1>
-            <p class="history-subtitle">Maria Santos · Donor since March 2025</p>
+            <p class="history-subtitle"><span id="donor-name">Loading...</span> · Donor since <span id="donor-since">...</span></p>
           </div>
           <a class="button button-accent history-cta" href="donor.html">Schedule New Donation</a>
         </div>
 
         <div class="history-stats" aria-label="Donation summary">
           <article class="history-stat history-stat-teal">
-            <strong>8</strong>
+            <strong id="total-donations">-</strong>
             <span>Total donations</span>
           </article>
           <article class="history-stat history-stat-orange">
-            <strong>1,840 mL</strong>
+            <strong id="total-volume">-</strong>
             <span>Total milk donated</span>
           </article>
           <article class="history-stat history-stat-gold">
-            <strong>6</strong>
+            <strong id="batches-distributed">-</strong>
             <span>Batches distributed</span>
           </article>
           <article class="history-stat history-stat-blue">
-            <strong>2</strong>
+            <strong id="processing-count">-</strong>
             <span>Processing in progress</span>
           </article>
         </div>
@@ -76,50 +80,8 @@
             <h2>Donation Timeline</h2>
           </div>
 
-          <div class="history-timeline-list">
-            <article class="history-event">
-              <div class="history-marker history-marker-teal">✓</div>
-              <div class="history-event-body">
-                <div class="history-event-title-row">
-                  <h3>Batch #B2025-047 distributed</h3>
-                  <span class="history-status history-status-ready">Distributed to infant</span>
-                </div>
-                <p>May 28, 2026 · 230 mL · Supsup Todo · Bangkal Health Center</p>
-              </div>
-            </article>
-
-            <article class="history-event">
-              <div class="history-marker history-marker-orange">⏳</div>
-              <div class="history-event-body">
-                <div class="history-event-title-row">
-                  <h3>Batch #B2025-041 - pasteurization complete</h3>
-                  <span class="history-status history-status-warm">Ready for distribution</span>
-                </div>
-                <p>May 20, 2026 · 200 mL · Milky Way · PGH Manila</p>
-              </div>
-            </article>
-
-            <article class="history-event">
-              <div class="history-marker history-marker-teal">✓</div>
-              <div class="history-event-body">
-                <div class="history-event-title-row">
-                  <h3>Batch #B2025-039 distributed</h3>
-                  <span class="history-status history-status-ready">Distributed to infant</span>
-                </div>
-                <p>May 10, 2026 · 240 mL · Supsup Todo</p>
-              </div>
-            </article>
-
-            <article class="history-event">
-              <div class="history-marker history-marker-blue">◔</div>
-              <div class="history-event-body">
-                <div class="history-event-title-row">
-                  <h3>Batch #B2025-030 distributed</h3>
-                  <span class="history-status history-status-ready">Distributed to infant</span>
-                </div>
-                <p>April 22, 2026 · 215 mL · Mom's Act · Home pickup</p>
-              </div>
-            </article>
+          <div class="history-timeline-list" id="timeline-list">
+            <p style="padding: 2rem; text-align: center; color: var(--muted);">Loading your donation history...</p>
           </div>
         </article>
       </section>
@@ -157,6 +119,7 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="history.js"></script>
 </body>
 </html>
 

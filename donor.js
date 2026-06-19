@@ -24,6 +24,19 @@ async function initDonorForm() {
     return;
   }
   
+  // Get user profile to check if they're a donor
+  const profile = await window.supabase.getUserProfile();
+  if (profile && profile.user_type !== 'donor') {
+    // Silently redirect if not a donor
+    window.location.href = 'index.html';
+    return;
+  }
+
+  // Update navigation visibility
+  if (profile) {
+    updateNavVisibility(profile.user_type);
+  }
+  
   // Pre-fill email for logged-in users
   const emailField = document.getElementById('email');
   if (emailField) {
@@ -39,14 +52,23 @@ function setupDonorWizard() {
   const wizard = document.querySelector('[data-donor-wizard]');
   if (!wizard) return;
 
-  // Handle back button
-  wizard.addEventListener('click', (e) => {
-    if (e.target.dataset.stepAction === 'back') {
-      previousStep();
-    } else if (e.target.dataset.stepAction === 'next' && e.target.type !== 'submit') {
-      e.preventDefault();
-      nextStep();
-    }
+  // Handle next/back button clicks WITHOUT submitting form
+  const actionButtons = wizard.querySelectorAll('button[data-step-action]');
+  actionButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      if (button.dataset.stepAction === 'back') {
+        e.preventDefault();
+        previousStep();
+      } else if (button.dataset.stepAction === 'next' && button.type === 'button') {
+        // Only prevent default for navigation buttons, not submit buttons
+        e.preventDefault();
+        nextStep();
+      } else if (button.dataset.stepAction === 'save') {
+        e.preventDefault();
+        // Save draft functionality could go here
+        alert('Draft saved!');
+      }
+    });
   });
 }
 
@@ -104,6 +126,20 @@ function updateStepLabel() {
 async function handleDonorRegistration(event) {
   event.preventDefault();
 
+  // Check which step we're on - only process on final step
+  const wizard = document.querySelector('[data-donor-wizard]');
+  const steps = Array.from(wizard.querySelectorAll('.donor-step'));
+  const activeStep = wizard.querySelector('.donor-step.is-active');
+  const stepIndex = steps.indexOf(activeStep);
+  const totalSteps = steps.length;
+
+  // If not on the last step, just navigate to next step
+  if (stepIndex < totalSteps - 1) {
+    nextStep();
+    return;
+  }
+
+  // Only proceed with registration on the FINAL step
   // Verify authentication
   const user = await window.supabase.getCurrentUser();
   if (!user) {
@@ -147,5 +183,26 @@ async function handleDonorRegistration(event) {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
     }
+  }
+}
+
+/**
+ * Update navigation visibility based on user type
+ */
+function updateNavVisibility(userType) {
+  // Get all nav links
+  const donorLinks = document.querySelectorAll('a[href="donor.html"], a[href="history.html"]');
+  const staffLinks = document.querySelectorAll('a[href="staff.html"]');
+
+  if (userType === 'donor') {
+    // Hide staff links for donors
+    staffLinks.forEach(link => {
+      link.style.display = 'none';
+    });
+  } else if (userType === 'staff' || userType === 'admin') {
+    // Hide donor links for staff/admin
+    donorLinks.forEach(link => {
+      link.style.display = 'none';
+    });
   }
 }

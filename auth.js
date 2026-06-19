@@ -183,7 +183,7 @@ async function requireAuth(redirectUrl = 'login.html') {
 
 /**
  * Check if user is logged in and update UI
- * Shows/hides elements based on auth status
+ * Shows/hides elements based on auth status and role
  */
 async function updateAuthUI() {
   const user = await window.supabase.getCurrentUser();
@@ -195,6 +195,12 @@ async function updateAuthUI() {
   if (user) {
     authLinks.forEach(el => el.style.display = 'none');
     protectedLinks.forEach(el => el.style.display = 'block');
+    
+    // Update role-based navigation visibility
+    const profile = await window.supabase.getUserProfile();
+    if (profile && typeof updateNavVisibility === 'function') {
+      updateNavVisibility(profile.user_type);
+    }
   } else {
     authLinks.forEach(el => el.style.display = 'block');
     protectedLinks.forEach(el => el.style.display = 'none');
